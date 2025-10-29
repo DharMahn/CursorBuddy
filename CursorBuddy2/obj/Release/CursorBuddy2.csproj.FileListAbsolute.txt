@@ -8,3 +8,14 @@ C:\Users\felna\source\repos\CursorBuddy2\CursorBuddy2\obj\Release\CursorBuddy2.c
 C:\Users\felna\source\repos\CursorBuddy2\CursorBuddy2\obj\Release\CursorBuddy2.csproj.CoreCompileInputs.cache
 C:\Users\felna\source\repos\CursorBuddy2\CursorBuddy2\obj\Release\CursorBuddy2.exe
 C:\Users\felna\source\repos\CursorBuddy2\CursorBuddy2\obj\Release\CursorBuddy2.pdb
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\bin\Release\CursorBuddy2.exe.config
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\bin\Release\CursorBuddy2.exe
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\bin\Release\CursorBuddy2.pdb
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.csproj.AssemblyReference.cache
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.Form1.resources
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.Properties.Resources.resources
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.csproj.GenerateResource.cache
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.csproj.CoreCompileInputs.cache
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.exe
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.pdb
+C:\Users\felnagyz\source\repos\CursorBuddy\CursorBuddy2\obj\Release\CursorBuddy2.exe.config

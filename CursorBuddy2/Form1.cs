@@ -76,6 +76,18 @@ namespace CursorBuddy2
             TopMost = true;
             FormBorderStyle = FormBorderStyle.None;
             Rectangle temprekt = Screen.AllScreens.Select(screen => screen.Bounds).Aggregate(Rectangle.Union);
+            foreach (var item in Screen.AllScreens)
+            {
+                Console.WriteLine("Found screen: " + item.Bounds);
+            }
+            //if (temprekt.X<0)
+            //{
+            //    temprekt.X += -temprekt.X;
+            //}
+            //if (temprekt.Y<0)
+            //{
+            //    temprekt.Y += -temprekt.Y;
+            //}
             Bounds = temprekt;
             for (int i = 0; i < max; i++)
             {
@@ -208,6 +220,7 @@ namespace CursorBuddy2
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Point cursorPos = Point.Subtract(Cursor.Position, (Size)Location);
             for (int i = 1; i < max; i++)
             {
                 float targetx = pontok[i - 1].p.X;
@@ -226,9 +239,9 @@ namespace CursorBuddy2
                 pontok[i].pen.Width = 20 - map(i, 0, max, 0, 20);
                 h += 0.1;
             }
-            float targetx2 = Cursor.Position.X + Xoffset;
+            float targetx2 = cursorPos.X + Xoffset;
             float dx2 = targetx2 - pontok[0].p.X;
-            float targety2 = Cursor.Position.Y + Yoffset;
+            float targety2 = cursorPos.Y + Yoffset;
             float dy2 = targety2 - pontok[0].p.Y;
             pontok[0].p.X += dx2 * pontok[0].easing;
             pontok[0].p.Y += dy2 * pontok[0].easing;
@@ -242,13 +255,11 @@ namespace CursorBuddy2
 
             rekts[0] = toRedraw;
             rekts[1] = pastRedraw;
-            //Invalidate(toRedraw);
-            //Invalidate(pastRedraw);
             Invalidate(rekts.Aggregate(Rectangle.Union));
 
             if (!simple)
             {
-                if (Math.Abs(Distance(prevpoint, Cursor.Position)) > 20)
+                if (Math.Abs(Distance(prevpoint, cursorPos)) > 20)
                 {
                     directionX = 0;
                     directionY = 0;
@@ -275,8 +286,8 @@ namespace CursorBuddy2
             {
                 pontok[0].easing = easingMax;
             }
-
-            prevpoint = Cursor.Position;
+            //Console.WriteLine("Cursor: " + cursorPos.ToString() + "\nBounds: " + Bounds.ToString());
+            prevpoint = cursorPos;
             pastRedraw = toRedraw;
         }
 
@@ -294,8 +305,6 @@ namespace CursorBuddy2
         }
         protected override void OnPaint(PaintEventArgs e)
         {
-
-            //forward
             for (int i = 0; i < max; i++)
             {
                 e.Graphics.FillEllipse(pontok[i].brush, pontok[i].p.X - (pontok[i].diameter / 2), pontok[i].p.Y - (pontok[i].diameter / 2), pontok[i].diameter, pontok[i].diameter);
@@ -304,11 +313,6 @@ namespace CursorBuddy2
             {
                 e.Graphics.DrawLine(pontok[i].pen, pontok[i].p.X, pontok[i].p.Y, pontok[i - 1].p.X, pontok[i - 1].p.Y);
             }
-
-            //debug
-            //e.Graphics.DrawRectangle(new Pen(Color.Red, 3), toRedraw);
-            //e.Graphics.DrawRectangle(new Pen(Color.Blue, 3), pastRedraw);
-            //e.Graphics.DrawRectangle(new Pen(Color.Blue, 3), rekts.Aggregate(Rectangle.Union));
         }
 
         private void timer2_Tick(object sender, EventArgs e)
